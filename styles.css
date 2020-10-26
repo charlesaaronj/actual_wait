@@ -1,0 +1,49 @@
+.container{
+    max-width: 600px;
+  }
+  .btn{
+    background: #43d9be;
+    color: white;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .btn:focus{
+    outline: none !important;
+  }
+  .username{
+    font-weight: bold;
+  }
+  .time{
+    font-size: 0.7em;
+    color: #999;
+  }
+
+
+  #timerContainer {
+    
+    width:100%;
+    margin: 0px;
+    min-height: 0px;
+    border-top:0px;
+  }
+  .timer, .reset {
+    float:;
+    width: 100%;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align:center;
+    color: #fff;
+    background: #000;
+    cursor: pointer
+  }
+  .reset {
+    background: #000;
+    color: white;
+    width:%;
+  }
+  .reset:hover {
+    background: #000;
+  }
+  .lighter {
+    background:#000;
+  }
