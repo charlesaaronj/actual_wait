@@ -18,7 +18,7 @@ newNameForm.addEventListener('submit', e => {
   console.log(newName);
 //   chatroom.updateName(newName);
 //   // reset the form
-//   newNameForm.reset();
+  newNameForm.reset();
 //   // show then hide the update message
 //   updateMssg.innerText = `Your name was updated to ${newName}`;
 //   setTimeout(() => updateMssg.innerText = '', 3000);
