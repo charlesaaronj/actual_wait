@@ -1,3 +1,5 @@
+
+
 // dom queries
 const chatList = document.querySelector('.chat-list');
 const newChatForm = document.querySelector('.new-chat');
@@ -10,19 +12,63 @@ const actual = document.querySelector('.actual');
 
 var MyApp  = {};
 
-// update the username
+
+// add a new chat
 newNameForm.addEventListener('submit', e => {
   e.preventDefault();
-  // update name via chatroom
-  const newName = newNameForm.name.value.trim();
-  console.log(newName);
-//   chatroom.updateName(newName);
-//   // reset the form
-  newNameForm.reset();
+const username = newNameForm.name.value.trim();
+checkIfUserExists(username);
+
+
+var USERS_LOCATION = 'https://portfolio-e7c37.firebaseio.com/users';
+
+function userExistsCallback(username, exists) {
+  if (exists) {
+    alert('user ' + userId + ' exists!');
+  } else {
+    alert('user ' + userId + ' does not exist!');
+  }
+}
+
+// Tests to see if /users/<userId> has any data. 
+function checkIfUserExists(username) {
+  var usersRef = new db (USERS_LOCATION);
+  usersRef.child(userId).once('value', function(snapshot) {
+    var exists = (snapshot.val() !== null);
+    userExistsCallback(username, exists);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+  const chatroom = new Chatroom(username);
+  chatroom.addChat(username)
+    .then(() => newNameForm.reset())
+    .catch(err => console.log(err));
+});
+//const username = localStorage.username ? localStorage.username : 'anon'
+
+// update the username
+// newNameForm.addEventListener('submit', e => {
+//   e.preventDefault();
+//   // update name via chatroom
+//   const newName = newNameForm.name.value.trim();
+//   console.log(newName);
+//   const waittime = new Waittime(newName);
+//   console.log(waittime);
+// //   // reset the form
+//   newNameForm.reset();
 //   // show then hide the update message
 //   updateMssg.innerText = `Your name was updated to ${newName}`;
 //   setTimeout(() => updateMssg.innerText = '', 3000);
-});
+//});
 
 // update the park
 newPark.addEventListener('click', e => {

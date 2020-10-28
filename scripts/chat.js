@@ -1,3 +1,23 @@
+class Chatroom {
+    constructor(username){
+      this.username = username;
+      this.users = db.collection('users');
+      this.unsub;
+    }
+    async addChat(message){
+      // format a chat object
+      console.log(message);
+      const now = new Date();
+      const chat = {
+        username: this.username,
+        created_at: firebase.firestore.Timestamp.fromDate(now)
+      };
+      const response = await this.users.add(chat);
+//       return response;
+//     }
+    };
+};
+
 // class Chatroom {
 //     constructor(room, username){
 //       this.room = room;
