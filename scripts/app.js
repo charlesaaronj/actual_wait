@@ -32,7 +32,7 @@ function userExistsCallback(username, exists) {
 
 // Tests to see if /users/<userId> has any data. 
 function checkIfUserExists(username) {
-  var usersRef = new db (USERS_LOCATION);
+  var usersRef = new Firebase(USERS_LOCATION);
   usersRef.child(userId).once('value', function(snapshot) {
     var exists = (snapshot.val() !== null);
     userExistsCallback(username, exists);
