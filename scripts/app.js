@@ -17,37 +17,6 @@ var MyApp  = {};
 newNameForm.addEventListener('submit', e => {
   e.preventDefault();
 const username = newNameForm.name.value.trim();
-checkIfUserExists(username);
-
-
-var USERS_LOCATION = 'https://portfolio-e7c37.firebaseio.com/users';
-
-function userExistsCallback(username, exists) {
-  if (exists) {
-    alert('user ' + userId + ' exists!');
-  } else {
-    alert('user ' + userId + ' does not exist!');
-  }
-}
-
-// Tests to see if /users/<userId> has any data. 
-function checkIfUserExists(username) {
-  var usersRef = new Firebase(USERS_LOCATION);
-  usersRef.child(userId).once('value', function(snapshot) {
-    var exists = (snapshot.val() !== null);
-    userExistsCallback(username, exists);
-  });
-}
-
-
-
-
-
-
-
-
-
-
   const chatroom = new Chatroom(username);
   chatroom.addChat(username)
     .then(() => newNameForm.reset())
