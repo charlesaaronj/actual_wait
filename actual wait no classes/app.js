@@ -1,4 +1,5 @@
 const attractionList = document.querySelector('#attraction-list');
+const expList = document.querySelector('.exp-list');
 const form = document.querySelector('#add-cafe-form');
 const getPark = document.getElementById('parks')
 const myObj = {};
@@ -22,19 +23,7 @@ db.collection('attractions').where('park', '==', getParkVal).get().then(snapshot
 //     });
 // });
 
-//real-time listener
-// db.collection('users')//.where('username', '==', 'aeroc33')
-// .onSnapshot(snapshot => {
-//     let changes = snapshot.docChanges();
-//     changes.forEach(change => {
-//         if(change.type ==='added'){
-//             renderCafe(change.doc);
-//         } else if (change.type =='removed') {
-//             let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
-//             cafeList.removeChild(li);
-//         }
-//     })
-// })
+
 
 //update data
 
@@ -75,4 +64,16 @@ form.addEventListener('submit', (e) => {
         attraction: myObj.attraction,
         experienced_at: firebase.firestore.Timestamp.fromDate(now)
     });
+
+db.collection('time')//.where('username', '==', 'aeroc33')
+.onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type ==='added'){
+            console.log(changes);
+        } else if (change.type =='removed') {
+        
+        }
+    })
+})
 });
