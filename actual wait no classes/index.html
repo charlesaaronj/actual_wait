@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <h1>Actual Wait</h1>
+
+        <div class="content">
+
+
+            <form class="form" id="add-cafe-form" action="" method="POST">
+              <div class="is-size-6 my-5 has-text-weight-medium">Placeholder:</div>
+                <div class="level">
+                  <div class="level-item">
+                <div class="select is-medium">
+                  <input type="text" id="username" placeholder="Enter username">
+                  <div class="parks-dropdown">
+                <select id="parks"> 
+                  <option>Select Park</option>
+                    <option value="Magic Kingdom">Magic Kingdom</option>
+                    <option value="Epcot">Epcot</option>
+                    <option value="Hollywood Studios">Hollywood Studios</option>
+                    <option value="Animal Kingdom">Animal Kingdom</option>
+                  </select>
+                </div>
+                <div class="attraction-dropdown">
+                  <select id="attraction-list"></select>
+                  
+                </div>
+                  <input type="text" name="username" placeholder="Enter posted wait time">
+        
+
+
+
+                  <div id="timerContainer">
+                    <div class="timer" onclick="startTimer()">Start Timer!</div>
+                    <div class="startTimer reset" onclick="startTimer()" >
+                        <i class="fas fa-play"></i>
+                      </div>
+                    <div class="pauseTimer reset" onclick="pauseTimer()" >
+                        <i class="fas fa-pause"></i>
+                      </div>
+                    <div class="resetTimer reset" onclick="resetTimer()">Reset</div>
+                    </div>
+                </div>
+
+                  <div class=""><span class="">Enter Actual Wait Time (minutes):</span>
+                  <input type="text" id="actual" required>
+            
+
+
+
+                </div>
+                <button class="button is-medium" id="my-form-button">Go</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+
+        <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+      
+      <script>
+        // Your web app's Firebase configuration code
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        let firebaseConfig = {
+          apiKey: "AIzaSyA6Mu1S0I96Q6G3CK0_jlrYH5eKre9eTes",
+          authDomain: "portfolio-e7c37.firebaseapp.com",
+          databaseURL: "https://portfolio-e7c37.firebaseio.com",
+          projectId: "portfolio-e7c37",
+          storageBucket: "portfolio-e7c37.appspot.com",
+          messagingSenderId: "530548180962",
+          appId: "1:530548180962:web:3547fc7db877cd20eadbbb",
+          measurementId: "G-281TLS07D0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+      </script>
+        <script src="app.js"></script>
+       <script src="stopwatch.js"></script>
+    </body>
+</html>
